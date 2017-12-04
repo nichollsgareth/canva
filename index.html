@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./client/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./client/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="./client/css/styles.css">
+    
+    <script type="text/javascript" src="./client/scripts/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="./client/scripts/knockout-3.4.2.js"></script>
+    <script type="text/javascript" src="./client/scripts/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="./client/scripts/clientDataApi.js"></script>
+    <script type="text/javascript" src="./client/scripts/client.common.js"></script>
+    <script type="text/javascript" src="./client/scripts/client.js"></script>
+    <title>Knockout Tournament</title>
+  </head>
+  <body>
+    <br>
+    <div class="container">
+        <div data-bind="with: pageArgs">
+            <br>
+            <div class="alert alert-danger" style="margin-bottom: 0;" role="alert" data-bind="text: errMessage, visible: errMessage"></div>
+            <div>
+                <input id="teamsPerMatch" data-bind="value: teamsPerMatch" placeholder="Teams per match" type="number" />
+                <input id="numberOfTeams"  data-bind="value: numberOfTeams" placeholder="Number of teams" type="number" />
+                <button id="start" onclick="Client.startTournament()" class="btn btn-primary">Start</button>
+                <span id="winner" data-bind="text: winner"></span>
+            </div>
+            <br>
+            <div class="alert alert-success" style="margin-bottom: 0;" role="alert" data-bind="text: succMessage, visible: succMessage"></div>
+        </div>
+        <div id="tournamentBoard"></div>
+    </div>
+    
+    <script>
+        $(document).ready(function () {
+           Client.init(); 
+        });
+    </script>
+  </body>
+</html>
